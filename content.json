@@ -8,7 +8,7 @@
   "assets": {
     "titleImage": "/assets/title-haveron-red.webp",
     "audio": "/audio3.mp3",
-    "model": "/iron_man.glb",
+    "model": "/iron_man-candidate-target.glb",
     "logos": {
       "chapter": {
         "src": "/gfg-bennett-mark.webp",
