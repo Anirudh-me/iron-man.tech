@@ -1,0 +1,16 @@
+{
+  "name": "iron-man-tech",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5175",
+    "build": "vite build",
+    "preview": "vite preview --port 4175",
+    "format": "prettier --write assets/index-red.js assets/index-red.css content.json content.schema.json vite.config.js package.json README.md"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "vite": "^5.4.8"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Are You The Geek? · Red Edition",
+    "description": "Are You The Geek? · Red Edition — Interactive 3D Orientation Experience",
+    "themeColor": "#d50022",
+    "favicon": "./favicon.png"
+  },
+  "assets": {
+    "titleImage": "/assets/title-haveron-red.webp",
+    "audio": "/audio3.mp3",
+    "model": "/iron_man.glb",
+    "logos": {
+      "chapter": {
+        "src": "/gfg-bennett-mark.webp",
+        "alt": "GeeksforGeeks BU chapter × Bennett University",
+        "width": 421,
+        "height": 213
+      },
+      "cabinet": {
+        "src": "/student-cabinet-cset.webp",
+        "alt": "Student Cabinet, School of CSET",
+        "width": 760,
+        "height": 185
+      }
+    }
+  },
+  "loader": {
+    "progressLabel": "carving the moai…",
+    "hint": "sound on for the full experience",
+    "enterLabel": "Enter"
+  },
+  "sound": {
+    "label": "Sound",
+    "onTitle": "Sound on",
+    "offTitle": "Sound off"
+  },
+  "hero": {
+    "heading": "Are You The Geek? GeeksforGeeks BU chapter Orientation ’26",
+    "brandTitle": "Are You The Geek?",
+    "scrollCue": "Scroll to find out",
+    "scrollTarget": "#perks"
+  },
+  "links": {
+    "registration": "https://luma.com/dhpz1i48",
+    "linktree": "https://linktr.ee/gfg_bennett_university",
+    "calendarBase": "https://calendar.google.com/calendar/render?action=TEMPLATE"
+  },
+  "perks": {
+    "heading": "Why you should show up",
+    "intro": "One evening, packed. Here’s what’s waiting for you on the other side of the door.",
+    "items": [
+      {
+        "id": "goodies",
+        "title": "Exclusive GFG goodies",
+        "body": "An exclusive GFG bag, diary and pen set, yours to keep.",
+        "tag": "Free"
+      },
+      {
+        "id": "games",
+        "title": "Micro competitions & games",
+        "body": "Quick, fun challenges and games, with bragging rights on the line."
+      },
+      {
+        "id": "dsa",
+        "title": "DSA talk",
+        "body": "DSA insights from the best DSA practitioner at Bennett University."
+      },
+      {
+        "id": "team",
+        "title": "Meet the GFG team",
+        "body": "An introduction to the GFG_BU team, with the chapter’s advisors in the room."
+      },
+      {
+        "id": "faculty",
+        "title": "Faculty",
+        "body": "Faculty members are invited to join the evening."
+      },
+      {
+        "id": "core",
+        "title": "Junior core forms",
+        "body": "Forms for the junior core team are shared early, right at the event."
+      }
+    ]
+  },
+  "event": {
+    "heading": "Mark the date. Bring your A-game.",
+    "ariaLabel": "Event details",
+    "name": "GfG BU Orientation 2026",
+    "start": "2026-09-18T18:30:00+05:30",
+    "end": "2026-09-18T20:30:00+05:30",
+    "weekday": "Friday",
+    "day": "18",
+    "month": "Sept",
+    "year": "2026",
+    "time": "6:30 PM onwards",
+    "venue": "PLH - 101",
+    "campus": "Bennett University, Greater Noida",
+    "audience": "Freshers + the new board",
+    "bring": "Just yourself. The goodies are on us.",
+    "detailLabels": {
+      "time": "Time",
+      "venue": "Venue",
+      "audience": "Who",
+      "bring": "Bring"
+    },
+    "calendarButton": "Add to Google Calendar",
+    "calendarDescription": "GFG goodies, micro competitions, games and a DSA talk. Register:"
+  },
+  "registration": {
+    "heading": "So… are you the Geek?",
+    "description": "One form, sixty seconds — and your seat is saved.",
+    "countdownLabel": "Time until orientation",
+    "completeMessage": "It’s showtime.",
+    "buttonLabel": "Claim your spot",
+    "countdownUnits": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Mins",
+      "seconds": "Secs"
+    }
+  },
+  "footer": {
+    "about": "The GeeksforGeeks student chapter at Bennett University. We code, compete, build — and help each other level up.",
+    "linksHeading": "Socials, contact & everything else",
+    "linktreeLabel": "Our Linktree",
+    "copyright": "© {year} GeeksforGeeks BU Chapter · Bennett University",
+    "backToTop": "Back to top ↑",
+    "wordmark": "GFG BU"
+  }
+}

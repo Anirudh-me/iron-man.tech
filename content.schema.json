@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "./content.schema.json",
+  "title": "Iron Man Tech page content",
+  "type": "object",
+  "required": [
+    "$schema",
+    "meta",
+    "assets",
+    "loader",
+    "sound",
+    "hero",
+    "links",
+    "perks",
+    "event",
+    "registration",
+    "footer"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "meta": {
+      "type": "object",
+      "required": ["title", "description", "themeColor", "favicon"],
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "themeColor": { "type": "string" },
+        "favicon": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "object",
+      "required": ["titleImage", "audio", "model", "logos"],
+      "properties": {
+        "titleImage": { "type": "string" },
+        "audio": { "type": "string" },
+        "model": { "type": "string" },
+        "logos": {
+          "type": "object",
+          "required": ["chapter", "cabinet"],
+          "properties": {
+            "chapter": { "$ref": "#/$defs/image" },
+            "cabinet": { "$ref": "#/$defs/image" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "loader": {
+      "type": "object",
+      "required": ["progressLabel", "hint", "enterLabel"],
+      "properties": {
+        "progressLabel": { "type": "string" },
+        "hint": { "type": "string" },
+        "enterLabel": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "sound": {
+      "type": "object",
+      "required": ["label", "onTitle", "offTitle"],
+      "properties": {
+        "label": { "type": "string" },
+        "onTitle": { "type": "string" },
+        "offTitle": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "hero": {
+      "type": "object",
+      "required": ["heading", "brandTitle", "scrollCue", "scrollTarget"],
+      "properties": {
+        "heading": { "type": "string" },
+        "brandTitle": { "type": "string" },
+        "scrollCue": { "type": "string" },
+        "scrollTarget": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "links": {
+      "type": "object",
+      "required": ["registration", "linktree", "calendarBase"],
+      "properties": {
+        "registration": { "type": "string", "format": "uri" },
+        "linktree": { "type": "string", "format": "uri" },
+        "calendarBase": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": false
+    },
+    "perks": {
+      "type": "object",
+      "required": ["heading", "intro", "items"],
+      "properties": {
+        "heading": { "type": "string" },
+        "intro": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "title", "body"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "title": { "type": "string" },
+              "body": { "type": "string" },
+              "tag": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "heading",
+        "ariaLabel",
+        "name",
+        "start",
+        "end",
+        "weekday",
+        "day",
+        "month",
+        "year",
+        "time",
+        "venue",
+        "campus",
+        "audience",
+        "bring",
+        "detailLabels",
+        "calendarButton",
+        "calendarDescription"
+      ],
+      "properties": {
+        "heading": { "type": "string" },
+        "ariaLabel": { "type": "string" },
+        "name": { "type": "string" },
+        "start": { "type": "string", "format": "date-time" },
+        "end": { "type": "string", "format": "date-time" },
+        "weekday": { "type": "string" },
+        "day": { "type": "string" },
+        "month": { "type": "string" },
+        "year": { "type": "string" },
+        "time": { "type": "string" },
+        "venue": { "type": "string" },
+        "campus": { "type": "string" },
+        "audience": { "type": "string" },
+        "bring": { "type": "string" },
+        "detailLabels": {
+          "type": "object",
+          "required": ["time", "venue", "audience", "bring"],
+          "properties": {
+            "time": { "type": "string" },
+            "venue": { "type": "string" },
+            "audience": { "type": "string" },
+            "bring": { "type": "string" }
+          },
+          "additionalProperties": false
+        },
+        "calendarButton": { "type": "string" },
+        "calendarDescription": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "registration": {
+      "type": "object",
+      "required": [
+        "heading",
+        "description",
+        "countdownLabel",
+        "completeMessage",
+        "buttonLabel",
+        "countdownUnits"
+      ],
+      "properties": {
+        "heading": { "type": "string" },
+        "description": { "type": "string" },
+        "countdownLabel": { "type": "string" },
+        "completeMessage": { "type": "string" },
+        "buttonLabel": { "type": "string" },
+        "countdownUnits": {
+          "type": "object",
+          "required": ["days", "hours", "minutes", "seconds"],
+          "properties": {
+            "days": { "type": "string" },
+            "hours": { "type": "string" },
+            "minutes": { "type": "string" },
+            "seconds": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "footer": {
+      "type": "object",
+      "required": [
+        "about",
+        "linksHeading",
+        "linktreeLabel",
+        "copyright",
+        "backToTop",
+        "wordmark"
+      ],
+      "properties": {
+        "about": { "type": "string" },
+        "linksHeading": { "type": "string" },
+        "linktreeLabel": { "type": "string" },
+        "copyright": { "type": "string" },
+        "backToTop": { "type": "string" },
+        "wordmark": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "image": {
+      "type": "object",
+      "required": ["src", "alt", "width", "height"],
+      "properties": {
+        "src": { "type": "string" },
+        "alt": { "type": "string" },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

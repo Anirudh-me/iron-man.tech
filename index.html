@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="" />
+    <meta name="description" content="" />
+    <link rel="icon" type="image/png" />
+    <title></title>
+    <link rel="stylesheet" href="./assets/index-red.css" />
+    <style>
+      :root {
+        --gfg: #d50022;
+        --ink: #120306;
+      }
+
+      body {
+        background: radial-gradient(
+            120% 90% at 50% 40%,
+            #ff3650 0%,
+            #d50022 45%,
+            #230006 100%
+          )
+          fixed;
+        margin: 0;
+      }
+
+      .boot {
+        z-index: 100;
+        color: #ff6876;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        background: #0a0a0a;
+        place-items: center;
+        font:
+          600 12px/1 system-ui,
+          -apple-system,
+          Segoe UI,
+          sans-serif;
+        display: grid;
+        position: fixed;
+        inset: 0;
+      }
+
+      .boot span:after {
+        content: "";
+        transform-origin: 0;
+        background: currentColor;
+        height: 2px;
+        margin-top: 16px;
+        animation: 1.1s ease-in-out infinite alternate boot;
+        display: block;
+      }
+
+      @keyframes boot {
+        0% {
+          transform: scaleX(0.1);
+        }
+        to {
+          transform: scaleX(1);
+        }
+      }
+    </style>
+    <script>
+      const rewriteModelUrl = (url) => {
+        try {
+          const parsed = new URL(url, location.href);
+          if (parsed.pathname.endsWith("/models/moai.glb")) {
+            return new URL(window.ironManContent.assets.model, location.href)
+              .href;
+          }
+          return url;
+        } catch {
+          return url;
+        }
+      };
+
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => {
+        if (input instanceof Request) {
+          const rewrittenUrl = rewriteModelUrl(input.url);
+          if (rewrittenUrl !== input.url) {
+            input = new Request(rewrittenUrl, input);
+          }
+        } else {
+          input = rewriteModelUrl(input);
+        }
+        return originalFetch(input, init);
+      };
+
+      const originalXhrOpen = XMLHttpRequest.prototype.open;
+      XMLHttpRequest.prototype.open = function (method, url, ...args) {
+        return originalXhrOpen.call(
+          this,
+          method,
+          rewriteModelUrl(url),
+          ...args,
+        );
+      };
+    </script>
+    <script type="module" src="./assets/index-red.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
