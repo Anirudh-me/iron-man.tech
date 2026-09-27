@@ -15,13 +15,7 @@
       }
 
       body {
-        background: radial-gradient(
-            120% 90% at 50% 40%,
-            #ff3650 0%,
-            #d50022 45%,
-            #230006 100%
-          )
-          fixed;
+        background: #0a0a0a;
         margin: 0;
       }
 
@@ -61,43 +55,6 @@
         }
       }
     </style>
-    <script>
-      const rewriteModelUrl = (url) => {
-        try {
-          const parsed = new URL(url, location.href);
-          if (parsed.pathname.endsWith("/models/moai.glb")) {
-            return new URL(window.ironManContent.assets.model, location.href)
-              .href;
-          }
-          return url;
-        } catch {
-          return url;
-        }
-      };
-
-      const originalFetch = window.fetch.bind(window);
-      window.fetch = (input, init) => {
-        if (input instanceof Request) {
-          const rewrittenUrl = rewriteModelUrl(input.url);
-          if (rewrittenUrl !== input.url) {
-            input = new Request(rewrittenUrl, input);
-          }
-        } else {
-          input = rewriteModelUrl(input);
-        }
-        return originalFetch(input, init);
-      };
-
-      const originalXhrOpen = XMLHttpRequest.prototype.open;
-      XMLHttpRequest.prototype.open = function (method, url, ...args) {
-        return originalXhrOpen.call(
-          this,
-          method,
-          rewriteModelUrl(url),
-          ...args,
-        );
-      };
-    </script>
     <script type="module" src="./assets/index-red.js"></script>
   </head>
   <body>

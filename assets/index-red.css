@@ -181,13 +181,7 @@ html.is-loading body {
 body {
   font-family: var(--font-body);
   color: var(--ink);
-  background: radial-gradient(
-      120% 90% at 50% 40%,
-      #ff3650 0%,
-      var(--gfg) 45%,
-      #230006 100%
-    )
-    fixed;
+  background: #0a0a0a;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   font-size: 16px;

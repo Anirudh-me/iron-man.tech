@@ -58,7 +58,7 @@ port `5175` by default. Stop it with `Ctrl+C`.
 
 | Path                   | Purpose                                                                      |
 | ---------------------- | ---------------------------------------------------------------------------- |
-| `index.html`           | HTML shell, document metadata bootstrap, and model URL rewrite.              |
+| `index.html`           | HTML shell, first-paint styling, and document metadata bootstrap.             |
 | `assets/index-red.js`  | Formatted application bundle and React component/render logic.               |
 | `assets/index-red.css` | Site layout, animation styles, responsive rules, and font-face declarations. |
 | `content.json`         | Editable page content, metadata, links, event information, and asset paths.  |
@@ -76,10 +76,8 @@ port `5175` by default. Stop it with `Ctrl+C`.
 1. Vite serves `index.html` and the application entry at `assets/index-red.js`.
 2. The JavaScript imports `content.json`, then applies the configured title,
    description, theme color, and favicon to the document.
-3. The HTML shell exposes the imported content to its small URL-rewrite helper.
-   The original scene requests a Moai model URL; the helper redirects that
-   request to the configured local Iron Man model. Both `fetch` and
-   `XMLHttpRequest` requests are handled.
+3. The scene loader reads the Iron Man model path directly from `content.json`;
+  no request rewriting or global `fetch`/`XMLHttpRequest` overrides are used.
 4. The React app mounts into `#root` and renders the loader, experience, sound
    control, sections, and footer.
 

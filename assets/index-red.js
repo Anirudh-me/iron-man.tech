@@ -67234,8 +67234,8 @@ function UT(e, t) {
     s = Math.min((i + a) / 2, a - o / 2);
   return {
     titleY: 1 - (2 * (n + r / 2)) / t,
-    moaiY: 1 - (2 * s) / t,
-    moaiScale: o / Math.min(t, e * 1.6),
+    ironManY: 1 - (2 * s) / t,
+    ironManScale: o / Math.min(t, e * 1.6),
   };
 }
 var WT = {
@@ -67249,10 +67249,10 @@ var WT = {
     mobile: {
       hero: {
         x: 0,
-        y: () => UT(window.innerWidth, window.innerHeight).moaiY,
+        y: () => UT(window.innerWidth, window.innerHeight).ironManY,
         rotY: -0.95,
         rotX: 0,
-        scale: () => UT(window.innerWidth, window.innerHeight).moaiScale,
+        scale: () => UT(window.innerWidth, window.innerHeight).ironManScale,
       },
       perks: { x: 0.5, y: -1.9, rotY: -0.85, rotX: 0.05, scale: 0.5 },
       event: { x: -0.5, y: -1.9, rotY: IT + 0.6, rotX: 0.05, scale: 0.5 },
@@ -67261,8 +67261,8 @@ var WT = {
     },
   },
   GT = {
-    moai: { ...WT.desktop.hero },
-    moaiWorld: { x: 0, y: 0 },
+    ironMan: { ...WT.desktop.hero },
+    ironManWorld: { x: 0, y: 0 },
     chromeBottom: 54,
     intro: 0,
     scroll: 0,
@@ -67325,7 +67325,7 @@ var WT = {
     // The bowl centre sits deepest, so it reads a touch darker.
     col *= mix(0.9, 1.06, smoothstep(0.0, 1.1, r));
 
-    // Soft light pooling behind the moai.
+    // Soft light pooling behind Iron Man.
     vec2 dh = vPos.xy - uHalo;
     float halo = exp(-dot(dh, dh) / 20.0);
     col = mix(col, uLight, halo * 0.28);
@@ -67373,8 +67373,8 @@ function XT() {
         (i.uGlow.value = GT.glow),
         (i.uScroll.value = ho.damp(i.uScroll.value, GT.scroll, 4, r)));
       let a = i.uHalo.value;
-      ((a.x = ho.damp(a.x, GT.moaiWorld.x * 1.8, 3, r)),
-        (a.y = ho.damp(a.y, GT.moaiWorld.y * 1.8 + 1.5, 3, r)));
+      ((a.x = ho.damp(a.x, GT.ironManWorld.x * 1.8, 3, r)),
+        (a.y = ho.damp(a.y, GT.ironManWorld.y * 1.8 + 1.5, 3, r)));
     }),
     (0, Q.jsxs)(`mesh`, {
       position: [0, 0, qT],
@@ -67603,7 +67603,7 @@ function hE() {
     (0, Q.jsx)(`mesh`, { ref: t, geometry: a, material: r, frustumCulled: !1 })
   );
 }
-var gE = `/models/moai.glb`,
+var gE = content.assets.model,
   _E = Math.PI / 4,
   { damp: vE } = ho;
 function yE() {
@@ -67632,7 +67632,7 @@ function yE() {
   return (
     vx((e, r) => {
       let i = Math.min(r, 0.1),
-        a = GT.moai,
+        a = GT.ironMan,
         o = GT.pointerSmooth,
         { width: s, height: c } = e.viewport,
         l = e.clock.elapsedTime,
@@ -67649,8 +67649,8 @@ function yE() {
       ((g.rotation.y = vE(g.rotation.y, a.rotY + o.x * 0.22 - u * 1.4, 5, i)),
         (g.rotation.x = vE(g.rotation.x, a.rotX - o.y * 0.1, 5, i)),
         (g.rotation.z = Math.sin(l * 0.6) * 0.012),
-        (GT.moaiWorld.x = f.position.x),
-        (GT.moaiWorld.y = f.position.y));
+        (GT.ironManWorld.x = f.position.x),
+        (GT.ironManWorld.y = f.position.y));
     }),
     (0, Q.jsx)(`group`, {
       ref: t,
@@ -67778,7 +67778,7 @@ function DE() {
           }),
         }),
         (0, Q.jsx)(CE, {
-          name: `moai model`,
+          name: `Iron Man model`,
           children: (0, Q.jsx)(v.Suspense, {
             fallback: null,
             children: (0, Q.jsx)(yE, {}),
@@ -74228,7 +74228,7 @@ function nN() {
 var rN = 12e3,
   iN = 2.4;
 function aN({ onLoaded: e }) {
-  let { progress: t, active: n } = ZS(),
+  let { progress: t } = ZS(),
     r = (0, v.useRef)(),
     i = (0, v.useRef)(),
     a = (0, v.useRef)(null),
@@ -74251,13 +74251,13 @@ function aN({ onLoaded: e }) {
     }, []),
     (0, v.useEffect)(() => {
       if (l) return;
-      if (t >= 100 && !n) {
+      if (Math.round(t) >= 100) {
         u(!0);
         return;
       }
       let e = setTimeout(() => u(!0), rN);
       return () => clearTimeout(e);
-    }, [t, n, l]),
+    }, [t, l]),
     (0, v.useEffect)(() => {
       if (!l) return;
       let e = Fj.timeline()
@@ -74544,7 +74544,7 @@ function SN() {
     (e) => {
       let t = e.conditions.desktop ? WT.desktop : WT.mobile,
         i = e.conditions.desktop;
-      Object.assign(GT.moai, xN(t.hero));
+      Object.assign(GT.ironMan, xN(t.hero));
       let n = [
           { trigger: `#perks`, from: t.hero, to: t.perks },
           { trigger: `#event`, from: t.perks, to: t.event },
@@ -74557,7 +74557,7 @@ function SN() {
           },
         ].map(({ trigger: e, from: t, to: n, end: r = `top 15%` }) =>
           Fj.fromTo(
-            GT.moai,
+            GT.ironMan,
             { ...t },
             {
               ...n,
@@ -74583,7 +74583,7 @@ function SN() {
         ),
         r = () => {
           n[0].scrollTrigger.progress === 0 &&
-            Object.assign(GT.moai, xN(t.hero));
+            Object.assign(GT.ironMan, xN(t.hero));
         };
       return (
         qn.addEventListener(`refresh`, r),

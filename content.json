@@ -25,7 +25,7 @@
     }
   },
   "loader": {
-    "progressLabel": "carving the moai…",
+    "progressLabel": "suiting up Iron Man…",
     "hint": "sound on for the full experience",
     "enterLabel": "Enter"
   },
@@ -123,7 +123,7 @@
     "about": "The GeeksforGeeks student chapter at Bennett University. We code, compete, build — and help each other level up.",
     "linksHeading": "Socials, contact & everything else",
     "linktreeLabel": "Our Linktree",
-    "copyright": "© {year} GeeksforGeeks BU Chapter · Bennett University",
+    "copyright": " Anirudh-me · Bennett University",
     "backToTop": "Back to top ↑",
     "wordmark": "GFG BU"
   }
